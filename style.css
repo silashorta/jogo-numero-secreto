@@ -62,7 +62,7 @@ h3 {
     transition: 0.4s;
 }
 
-@media (min-width: 768px){
+@media (max-width: 768px){
     h1 {
         font-size: 3em;
     }
