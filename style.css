@@ -61,3 +61,19 @@ h3 {
     background-color: #9cd4eb;
     transition: 0.4s;
 }
+
+@media (max-width: 768px){
+    h1 {
+        font-size: 3em;
+    }
+    
+    h2{
+        font-size: 2em;
+        font-weight: 700;
+    }
+    
+    h3 {
+        font-size: 2em;
+        margin-top: 20px;
+    }
+}
