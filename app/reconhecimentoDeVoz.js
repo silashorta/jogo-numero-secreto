@@ -49,8 +49,7 @@ function listaChute(chute) {
     const lista = document.querySelector('.listaChute')
     lista.innerHTML = `Suas tentativas: ${listaArray.join(", ")}`
     
-    console.log(listaArray)
-    
+    //console.log(listaArray)
 }
 
 // REATIVANDO O MICROFONE

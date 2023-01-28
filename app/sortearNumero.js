@@ -11,4 +11,4 @@ elementoMenorValor.innerHTML = menorValor
 const elementoMaiorValor = document.querySelector('#maior-valor')
 elementoMaiorValor.innerHTML = maiorValor
 
-console.log(numeroSecreto)
+//console.log(numeroSecreto)
