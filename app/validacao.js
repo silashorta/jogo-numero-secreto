@@ -23,7 +23,8 @@ function VerificaValor(chute){
 
     if (numero === numeroSecreto) {
         document.body.innerHTML = `
-            <h2>Você acertou!</h2>
+            <h2>Você acertou!!!</h2>
+            <p class="textoTentativas"> Numero de tentativas: <strong>${listaArray.length}</strong>
             <h3>O número secreto era ${numeroSecreto}.</h3>
             <a href="index.html" class="botaoReiniciar">Reiniciar Jogo</a>
         `

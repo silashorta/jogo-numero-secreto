@@ -38,7 +38,7 @@ h3 {
 }
 
 .buttonMic {
-    margin: 1em;;
+    margin: 4em 1em 1em 1em;
     padding: 2.5em;
     border-radius: 50%;
     background-color: transparent;
@@ -47,7 +47,7 @@ h3 {
 }
 
 .buttonMic:active{
-    transition: 0.5s ease-in;
+    transition: 0.25s ease-out;
     animation: color-change 1.5s infinite;
     background-color: #f7c7c7;
     color: #ff4e4e;
@@ -57,6 +57,7 @@ h3 {
 @keyframes color-change {
     0% {
         background-color: #f7c7c7;
+        color: #ff4e4e;
     }
     100% {
         background-color: #ff4e4e;
@@ -70,6 +71,7 @@ h3 {
 }
 
 .mensagem {
+    margin: 0 1em;
     font-size: 1.5em;
     margin-top: 40px;
 }
@@ -87,6 +89,12 @@ h3 {
     /* border: 1px solid var(--primary-color); */
     padding: 1em;
     margin: 1em;
+}
+
+.textoTentativas{
+    margin: 1em;
+    padding: 1em;
+    font-size: 1.5em;
 }
 
 .botaoReiniciar{

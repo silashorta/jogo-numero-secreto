@@ -47,7 +47,7 @@ function listaChute(chute) {
     listaArray.unshift(chute)
     
     const lista = document.querySelector('.listaChute')
-    lista.innerHTML = listaArray.join(", ")
+    lista.innerHTML = `Suas tentativas: ${listaArray.join(", ")}`
     
     console.log(listaArray)
     
