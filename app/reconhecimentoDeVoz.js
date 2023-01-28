@@ -7,7 +7,13 @@ const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition();
 recognition.lang = 'pt-BR'
-recognition.start();
+
+
+
+const mic = document.querySelector('.buttonMic')
+mic.addEventListener('click', (e) => {
+        recognition.start(e); 
+})
 
 // CAPTURAR A FALA
 
@@ -28,4 +34,4 @@ function exibeChuteNaTela(chute) {
 
 // REATIVANDO O MICROFONE
 
-recognition.addEventListener('end', () => recognition.start())
+//recognition.addEventListener('end', () => recognition.start())

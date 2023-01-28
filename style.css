@@ -36,6 +36,26 @@ h3 {
 .subtitulo{
     margin: 1em;
 }
+
+.buttonMic {
+    margin: 1em;;
+    padding: 2.5em;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 0.5em solid var(--primary-color);
+}
+
+.buttonMic:active{
+    transition: 0.5s;
+    color: #ff4e4e;
+    border-color: #ff4e4e;
+}
+
+.fa-microphone {
+    font-size: 4em;
+}
+
 .mensagem {
     font-size: 1.5em;
     margin-top: 40px;
@@ -78,5 +98,8 @@ h3 {
     h3 {
         font-size: 2em;
         margin-top: 20px;
+    }
+    .fa-solid{
+        font-size: 3em;
     }
 }
