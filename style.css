@@ -47,9 +47,22 @@ h3 {
 }
 
 .buttonMic:active{
-    transition: 0.5s;
+    transition: 0.5s ease-in;
+    animation: color-change 1.5s infinite;
+    background-color: #f7c7c7;
     color: #ff4e4e;
     border-color: #ff4e4e;
+}
+
+@keyframes color-change {
+    0% {
+        background-color: #f7c7c7;
+    }
+    100% {
+        background-color: #ff4e4e;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
 }
 
 .fa-microphone {
@@ -67,6 +80,13 @@ h3 {
     font-size: 4em;
     padding: 10px;
     margin: 20px;
+}
+
+.listaChute{
+    font-size: 1.5em;
+    /* border: 1px solid var(--primary-color); */
+    padding: 1em;
+    margin: 1em;
 }
 
 .botaoReiniciar{

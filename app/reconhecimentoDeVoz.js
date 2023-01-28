@@ -37,8 +37,20 @@ function onSpeak(e){
 function exibeChuteNaTela(chute) {
     console.log(chute)
     elementoChute.innerHTML = 
-    `<div>Você disse:</div>
+    `<div class="mensagem">Você disse:</div>
     <div class="box">${chute}</div>`
+    listaChute(chute)
+}
+
+const listaArray = []
+function listaChute(chute) {
+    listaArray.unshift(chute)
+    
+    const lista = document.querySelector('.listaChute')
+    lista.innerHTML = listaArray.join(", ")
+    
+    console.log(listaArray)
+    
 }
 
 // REATIVANDO O MICROFONE
