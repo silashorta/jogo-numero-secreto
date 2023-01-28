@@ -11,8 +11,11 @@ recognition.lang = 'pt-BR'
 
 
 const mic = document.querySelector('.buttonMic')
-mic.addEventListener('click', (e) => {
+mic.addEventListener('mousedown', (e) => {
         recognition.start(e); 
+})
+mic.addEventListener('mouseup', (e) => {
+    recognition.stop(e);
 })
 
 // CAPTURAR A FALA
