@@ -17,12 +17,13 @@ mic.addEventListener('mousedown', (e) => {
 mic.addEventListener('mouseup', (e) => {
     recognition.stop(e);
 })
-mic.addEventListener('touchstart', (e) => {
+/* mic.addEventListener('touchstart', (e) => {
+    e.preventDefault()
         recognition.start(e); 
 })
 mic.addEventListener('touchend', (e) => {
     recognition.stop(e);
-})
+}) */
 
 // CAPTURAR A FALA
 
