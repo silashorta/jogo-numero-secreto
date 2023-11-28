@@ -66,15 +66,6 @@ const mic = document.querySelector('.buttonMic');
 
 let isRecognitionStarted = false;
 
-mic.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // Evita a seleção padrão
-    
-    if (!isRecognitionStarted) {
-        recognition.start();
-        isRecognitionStarted = true;
-    }
-});
-
 mic.addEventListener('mousedown', (e) => {
     e.preventDefault(); // Evita a seleção padrão
     
@@ -84,17 +75,19 @@ mic.addEventListener('mousedown', (e) => {
     }
 });
 
-mic.addEventListener('touchend', () => {
+mic.addEventListener('mouseup', () => {
     if (isRecognitionStarted) {
         recognition.stop();
         isRecognitionStarted = false;
     }
 });
 
-mic.addEventListener('mouseup', () => {
-    if (isRecognitionStarted) {
-        recognition.stop();
-        isRecognitionStarted = false;
+mic.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita a seleção padrão
+    
+    if (!isRecognitionStarted) {
+        recognition.start();
+        isRecognitionStarted = true;
     }
 });
 
