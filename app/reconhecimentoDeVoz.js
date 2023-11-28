@@ -68,23 +68,27 @@ let isRecognitionStarted = false;
 
 mic.addEventListener('mousedown', startRecognition);
 mic.addEventListener('touchstart', startRecognition);
+mic.addEventListener('focusin', startRecognition);
 
 mic.addEventListener('mouseup', stopRecognition);
 mic.addEventListener('touchend', stopRecognition);
+mic.addEventListener('focusout', stopRecognition);
 
 function startRecognition(e) {
     e.preventDefault(); // Evita a seleção padrão
     if (!isRecognitionStarted) {
         recognition.start();
         isRecognitionStarted = true;
-        console.log('mic ativo')
+        console.log(isRecognitionStarted)
+
     }
 }
 
 function stopRecognition() {
     if (isRecognitionStarted) {
-        recognition.stop();
         isRecognitionStarted = false;
+        recognition.stop();
+        console.log(isRecognitionStarted)
     }
 }
 
