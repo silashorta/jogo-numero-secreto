@@ -1,4 +1,4 @@
-const elementoChute = document.querySelector('#chute')
+/* const elementoChute = document.querySelector('#chute')
 
 
 // CONFIGURANDO E INICIANDO O SPEECHRECOGNITION
@@ -17,13 +17,13 @@ mic.addEventListener('mousedown', (e) => {
 mic.addEventListener('mouseup', (e) => {
     recognition.stop(e);
 })
-/* mic.addEventListener('touchstart', (e) => {
+mic.addEventListener('touchstart', (e) => {
     e.preventDefault()
         recognition.start(e); 
 })
 mic.addEventListener('touchend', (e) => {
     recognition.stop(e);
-}) */
+})
 
 // CAPTURAR A FALA
 
@@ -55,4 +55,68 @@ function listaChute(chute) {
 
 // REATIVANDO O MICROFONE
 
-//recognition.addEventListener('end', () => recognition.start())
+//recognition.addEventListener('end', () => recognition.start()) */
+
+
+const elementoChute = document.querySelector('#chute');
+const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.lang = 'pt-BR';
+const mic = document.querySelector('.buttonMic');
+
+let isRecognitionStarted = false;
+
+mic.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Evita a seleção padrão
+    
+    if (!isRecognitionStarted) {
+        recognition.start();
+        isRecognitionStarted = true;
+    }
+});
+
+mic.addEventListener('mousedown', (e) => {
+    e.preventDefault(); // Evita a seleção padrão
+    
+    if (!isRecognitionStarted) {
+        recognition.start();
+        isRecognitionStarted = true;
+    }
+});
+
+mic.addEventListener('touchend', () => {
+    if (isRecognitionStarted) {
+        recognition.stop();
+        isRecognitionStarted = false;
+    }
+});
+
+mic.addEventListener('mouseup', () => {
+    if (isRecognitionStarted) {
+        recognition.stop();
+        isRecognitionStarted = false;
+    }
+});
+
+recognition.addEventListener('result', onSpeak);
+
+function onSpeak(e) {
+    const chute = e.results[0][0].transcript;
+    exibeChuteNaTela(chute);
+    VerificaValor(chute);
+}
+
+function exibeChuteNaTela(chute) {
+    elementoChute.innerHTML =
+        `<div class="mensagem">Você disse:</div>
+        <div class="box">${chute}</div>`;
+    listaChute(chute);
+}
+
+const listaArray = [];
+
+function listaChute(chute) {
+    listaArray.unshift(chute);
+    const lista = document.querySelector('.listaChute');
+    lista.innerHTML = `Suas tentativas: ${listaArray.join(", ")}`;
+}
