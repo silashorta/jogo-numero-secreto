@@ -74,10 +74,10 @@ mic.addEventListener('touchend', stopRecognition);
 
 function startRecognition(e) {
     e.preventDefault(); // Evita a seleção padrão
-    
     if (!isRecognitionStarted) {
         recognition.start();
         isRecognitionStarted = true;
+        console.log('mic ativo')
     }
 }
 
