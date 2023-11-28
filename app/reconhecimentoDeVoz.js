@@ -66,30 +66,27 @@ const mic = document.querySelector('.buttonMic');
 
 let isRecognitionStarted = false;
 
-mic.addEventListener('mousedown', (e) => {
+mic.addEventListener('mousedown', startRecognition);
+mic.addEventListener('touchstart', startRecognition);
+
+mic.addEventListener('mouseup', stopRecognition);
+mic.addEventListener('touchend', stopRecognition);
+
+function startRecognition(e) {
     e.preventDefault(); // Evita a seleção padrão
     
     if (!isRecognitionStarted) {
         recognition.start();
         isRecognitionStarted = true;
     }
-});
+}
 
-mic.addEventListener('mouseup', () => {
+function stopRecognition() {
     if (isRecognitionStarted) {
         recognition.stop();
         isRecognitionStarted = false;
     }
-});
-
-mic.addEventListener('click', (e) => {
-    e.preventDefault(); // Evita a seleção padrão
-    
-    if (!isRecognitionStarted) {
-        recognition.start();
-        isRecognitionStarted = true;
-    }
-});
+}
 
 recognition.addEventListener('result', onSpeak);
 
