@@ -64,6 +64,7 @@ const recognition = new SpeechRecognition();
 /* recognition.lang = 'pt-BR'; */
 const mic = document.querySelector('.buttonMic');
 
+let isRecognitionStarted = false;
 
 mic.addEventListener('mousedown', startRecognition);
 mic.addEventListener('touchstart', startRecognition);
@@ -75,13 +76,28 @@ mic.addEventListener('focusout', stopRecognition);
 
 function startRecognition(e) {
     e.preventDefault(); // Evita a seleção padrão
-        recognition.start();
-    }
 
+    if (!isRecognitionStarted) {
+        recognition.start();
+        isRecognitionStarted = true;
+
+        // Adicione um ouvinte para o evento touchend na janela para garantir que o reconhecimento não seja interrompido ao tocar na tela
+        window.addEventListener('touchend', windowTouchEndHandler, { once: true });
+    }
+}
 
 function stopRecognition() {
+    if (isRecognitionStarted) {
         recognition.stop();
+        isRecognitionStarted = false;
     }
+}
+
+function windowTouchEndHandler() {
+    // Este manipulador é chamado quando ocorre um evento touchend na janela
+    // Aqui você pode reiniciar o reconhecimento, se necessário
+    // Exemplo: startRecognition(new TouchEvent('touchstart'));
+}
 
 recognition.addEventListener('result', onSpeak);
 
