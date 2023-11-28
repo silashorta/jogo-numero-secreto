@@ -61,7 +61,7 @@ function listaChute(chute) {
 const elementoChute = document.querySelector('#chute');
 const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
-recognition.lang = 'pt-BR';
+/* recognition.lang = 'pt-BR'; */
 const mic = document.querySelector('.buttonMic');
 
 let isRecognitionStarted = false;
