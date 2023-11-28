@@ -96,7 +96,7 @@ function stopRecognition() {
 function windowTouchEndHandler() {
     // Este manipulador é chamado quando ocorre um evento touchend na janela
     // Aqui você pode reiniciar o reconhecimento, se necessário
-    // Exemplo: startRecognition(new TouchEvent('touchstart'));
+    startRecognition(new TouchEvent('touchstart'));
 }
 
 recognition.addEventListener('result', onSpeak);
