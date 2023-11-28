@@ -64,7 +64,6 @@ const recognition = new SpeechRecognition();
 /* recognition.lang = 'pt-BR'; */
 const mic = document.querySelector('.buttonMic');
 
-let isRecognitionStarted = false;
 
 mic.addEventListener('mousedown', startRecognition);
 mic.addEventListener('touchstart', startRecognition);
@@ -76,21 +75,13 @@ mic.addEventListener('focusout', stopRecognition);
 
 function startRecognition(e) {
     e.preventDefault(); // Evita a seleção padrão
-    if (!isRecognitionStarted) {
         recognition.start();
-        isRecognitionStarted = true;
-        console.log(isRecognitionStarted)
-
     }
-}
+
 
 function stopRecognition() {
-    if (isRecognitionStarted) {
-        isRecognitionStarted = false;
         recognition.stop();
-        console.log(isRecognitionStarted)
     }
-}
 
 recognition.addEventListener('result', onSpeak);
 
