@@ -108,6 +108,7 @@ function onSpeak(e) {
     console.log('Speech recognized:', chute);
     exibeChuteNaTela(chute);
     listaChute(chute);
+    VerificaValor(chute);
 }
 
 function exibeChuteNaTela(chute) {
