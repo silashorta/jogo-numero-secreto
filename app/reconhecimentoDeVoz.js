@@ -72,8 +72,14 @@ const mic = document.querySelector('.buttonMic');
 
 let isRecognitionStarted = false;
 
-mic.addEventListener('touchstart', startRecognition);
-mic.addEventListener('mousedown', startRecognition);
+// Adapte a lógica de eventos com base na largura da tela
+if (window.innerWidth <= 600) {
+    mic.addEventListener('touchstart', startRecognition);
+    window.addEventListener('touchend', windowTouchEndHandler);
+} else {
+    mic.addEventListener('mousedown', startRecognition);
+    window.addEventListener('mouseup', windowTouchEndHandler);
+}
 
 function startRecognition(e) {
     e.preventDefault();
@@ -89,10 +95,6 @@ function startRecognition(e) {
         });
 
         recognition.addEventListener('result', onSpeak);
-
-        // Adicione um ouvinte para o evento touchend na janela para garantir que o reconhecimento não seja interrompido ao tocar na tela
-        window.addEventListener('touchend', windowTouchEndHandler, { once: true });
-        window.addEventListener('mouseup', windowTouchEndHandler, { once: true });
     }
 }
 
